@@ -59,7 +59,7 @@ echo '<!DOCTYPE html>
                     <nav class="main-nav" id="main-nav">
                       <ul>
                         <li>
-						<a href="index.php">Browse</a>
+						              <a href="index2.php">Browse</a>
                         </li>
                         <li>
                           <a href="favi.php">Favorites</a>

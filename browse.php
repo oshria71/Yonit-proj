@@ -84,7 +84,7 @@ if($_GET["flag"]=="register")
                           <a href="favi.php">Favorites</a>
                         </li>
                         <li>
-                          <a href="settings.html">Account Settings</a>
+                          <a href="settings.php">Account Settings</a>
                         </li>
                       </ul>
                     </nav>
