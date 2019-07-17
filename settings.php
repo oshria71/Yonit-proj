@@ -14,6 +14,9 @@ echo '<!DOCTYPE html>
     <body id="settingPage" class="wrapper">
         <header>
                 <section class="top">
+                <div class="LeftTop">              
+                <a href="index.php" class="homepage"></a>
+                </div>
                         <div class="nev">
                             <button id="burger" class="open-main-nav">
                               <span class="burger"></span>

@@ -12,8 +12,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
+ $sql = 'SELECT * from tb_user_222_products where nameOfP like "'.$_GET["flag"].'%"';
 
-$_GET["flag"]; // name of the food that we need to search in SQL and create the page for 
+$result = $conn->query($sql);
+if($result != NULL)
+        
+         $row = $result->fetch_assoc();
+           
+       
+       
+//$_GET["flag"]; // name of the food that we need to search in SQL and create the page for instructions
 
 
 echo '<!DOCTYPE html>
@@ -30,7 +38,8 @@ echo '<!DOCTYPE html>
         <header>
             <section class="top">
               <div class="LeftTop">
-                  <div class="bold-line"></div>
+              <a href="index.php" class="homepage"></a>
+                <button type="button" onclick="favorite(';$_GET["flag"];echo')" class="favoriteButton" id="favoriteID">Favorite</button>
                   <div class="container" id="containerID">
                     <div class="window">
                       <div class="overlay"></div>
@@ -75,11 +84,12 @@ echo '<!DOCTYPE html>
         </header>
         <section class="textArea">
             <p>';
-            echo //here we need to pull the description of the food and echo it to the page
-            '</p>
+                  echo  $row["description"];
+          
+            echo '</p><br>
         </section>        <section class="textArea">
         <p>';
-            echo //here we need to pull the ingreidants and instrucations of the food and echo it to the page
+                 echo  $row["instructions"].
         '</p>
         </section>
         <footer>
@@ -92,4 +102,5 @@ echo '<!DOCTYPE html>
     </body>
 </html>';
 
+$conn->close();
 ?>

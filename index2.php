@@ -33,6 +33,7 @@ echo "<!DOCTYPE html>
       <header>
         <section class='top'>
               <div class='LeftTop'>
+              <a href='index.php' class='homepage'></a>
               <div class='bold-line'></div>
                   <div class='container' id='containerID'>
                     <div class='window'>
@@ -96,16 +97,22 @@ echo "<!DOCTYPE html>
       <section id='con'>";
       if($result != NULL)
         if ($result->num_rows > 0) {
-          while($row = $result->fetch_assoc()) {
-            echo "<div class='mealbox'><form action='recpie.php' method='GET'><img src=". $row["imagePath"]." alt=". $row["nameOfP"].">  <div class='text-block' (".$row["nameOfP"].")'><h4><input type='hidden' name='flag' value=".$row["nameOfP"]."></input><input type='submit' value=".$row["nameOfP"]."></button></h4></div></form></div> ";
-          }
-        } else {     
-                  echo "0 results";
-              }
-      else{
-        echo '<section class="textArea">You need to configure your user preffances in order<br> to view meals that suit you, please visit <a href="settings.php">this link</a> to set up your user</section>';
-      }  
-        echo "</section>
+          if($_SESSION["usr"] != NULL)
+            for ($x = 0; $x <= 4; $x++) {
+              $row = $result->fetch_assoc();
+              echo "<div class='mealbox'><form action='recpie.php' method='GET'><img src=". $row["imagePath"]." alt=". $row["nameOfP"].">  <div class='text-block' (".$row["nameOfP"].")'><h4><input type='hidden' name='flag' value=".$row["nameOfP"]."></input><input type='submit' value=".$row["nameOfP"]."></button></h4></div></form></div> ";
+            } 
+          else
+            while($row = $result->fetch_assoc()) {
+              echo "<div class='mealbox'><form action='recpie.php' method='GET'><img src=". $row["imagePath"]." alt=". $row["nameOfP"].">  <div class='text-block' (".$row["nameOfP"].")'><h4><input type='hidden' name='flag' value=".$row["nameOfP"]."></input><input type='submit' value=".$row["nameOfP"]."></button></h4></div></form></div> ";
+            }
+          } else {     
+                    echo "0 results";
+                }
+        else{
+          echo '<section class="textArea">You need to configure your user preffances in order<br> to view meals that suit you, please visit <a href="settings.php">this link</a> to set up your user</section>';
+        }  
+          echo "</section>
         <script src='script/scritps.js'></script>
 
 </body>

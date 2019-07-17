@@ -73,8 +73,16 @@ else{
 	}
 }
 
-function FuncToPrivtePage(s){
- 
+function favorite(food){
+	$servername = "182.50.133.168";
+	$username = "studDB19a";
+	$password = "stud19DB1!";
+	$dbname = "studDB19a";
+
+	if(document.getElementById("favoriteID").style.backgroundColor == "green")
+		document.getElementById("favoriteID").style.backgroundColor = "red";
+	else
+		document.getElementById("favoriteID").style.backgroundColor = "green";
+	
+		
 }
-
-

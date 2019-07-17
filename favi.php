@@ -37,6 +37,7 @@ echo '<!DOCTYPE html>
     <header>
       <section class="top">
             <div class="LeftTop">
+            <a href="index.php" class="homepage"></a>
                 <div class="bold-line"></div>
                 <div class="container" id="containerID">
                   <div class="window">
@@ -77,9 +78,17 @@ echo '<!DOCTYPE html>
           <div class="pagename"><h1>My Favorits</h1></div>
     </section>
   </header>
-  <section class="con">';
+  <section id="con">';
   if($result != NULL){
   if ($result->num_rows > 0) {
+    if($_SESSION["usr"] != NULL)
+      for ($x = 0; $x <= 4; $x++) {
+        $row = $result->fetch_assoc();
+        if($x > 2){
+          echo "<div class='mealbox'><form action='recpie.php' method='GET'><img src=". $row["imagePath"]." alt=". $row["nameOfP"].">  <div class='text-block' (".$row["nameOfP"].")'><div> <img class='stars' src='pic/star.png'> </div><h4><input type='hidden' name='flag' value=".$row["nameOfP"]."></input><input type='submit' value=".$row["nameOfP"]."></button></h4></div></form></div> ";
+        }
+      }
+    else
     while($row = $result->fetch_assoc()) {
       echo "<div class='mealbox'><form action='recpie.php' method='GET'><img src=". $row["imagePath"]." alt=". $row["nameOfP"].">  <div class='text-block' (".$row["nameOfP"].")'><div> <img class='stars' src='pic/star.png'> </div><h4><input type='hidden' name='flag' value=".$row["nameOfP"]."></input><input type='submit' value=".$row["nameOfP"]."></button></h4></div></form></div> ";
     }

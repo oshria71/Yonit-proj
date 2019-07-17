@@ -49,6 +49,7 @@ if($_GET["flag"]=="register")
         <header>
             <section class="top">
               <div class="LeftTop">
+              <a href="index.php" class="homepage"></a>
                   <div class="bold-line"></div>
                   <div class="container" id="containerID">
                     <div class="window">
@@ -89,7 +90,7 @@ if($_GET["flag"]=="register")
                       </ul>
                     </nav>
                   </div>
-                <div class="pagename" id="test">'.$_SESSION["usr"].' Welcome to Cookit</div>
+                <div class="pagename" id="test"><br><br>'.$_SESSION["usr"].' Welcome to Cookit</div>
             </section>
         </header>
         <section class="textArea">
